@@ -1,11 +1,14 @@
 import environ
+import logging
+import logging.config
+
+from django.utils.log import DEFAULT_LOGGING
 
 from pathlib import Path
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-print(BASE_DIR / ".env")
 environ.Env.read_env(BASE_DIR / ".env")
 env = environ.Env(
     DEBUG=(bool, False)
@@ -129,10 +132,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'users.User'
 
-import logging
-import logging.config
-
-from django.utils.log import DEFAULT_LOGGING
 
 logger = logging.getLogger(__name__)
 
